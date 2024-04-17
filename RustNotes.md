@@ -20,7 +20,8 @@
 - You can reuse variable names by *shodowing* them.
     - Redeclare the variable (`let`, `const`, etc.)
     - The *showdowing* variables only last within the scope ends.
-    - The *showdowed* variables value presists but only accesable after the *shadowing* variable' scope ends.
+    - The *showdowed* variables value presists but only accesable after <br>
+      the *shadowing* variable' scope ends.
 - `mut` does not allow you to change the type of the variable.
 - *showdowing* a variables does allow the type of the variable to be changed.
 
@@ -66,7 +67,8 @@
 
 ## Functions
 - By convention function in Rust use `snake_case` format for names
-- Rust doesn’t care where you define your functions, only that they’re defined somewhere in a scope.
+- Rust doesn’t care where you define your functions, only that they’re <br>
+  defined somewhere in a scope.
 - You must specifiy the type in parameters `fn func(x: i32){};`
 - Return values are specified with the `->`
     - `fn five -> i32 { 5 }
@@ -76,34 +78,59 @@
 
 ## Statements and Expressions
 - You can create a scope block with `{ //new scope }`
-- The last line in a scope block does not end with a `;` otherwise it becomes a statement
+- The last line in a scope block does not end with a `;` otherwise it <br>
+  becomes a statement
 - Statements do not return a value
 - You can set a variable to a scope block which creates a marco.
 
 ## Loop
 - Rust has three loops: `loop`, `while`, `for`.
 - You can assign lables to loops `lable_name: loop {}`
-- You can `break` and `continue` specific loops by using lables `break 'lable_name;`
+- You can `break` and `continue` specific loops by using lables <br>
+ `break 'lable_name;`
 - while loops work like all the other while loops
 - for loops look like python `for i in a {};`
 - You can use a range  too `for i in (1..4) {};`
 - You can reverse the loop too `for i in (1..4).rev() {};`
 
 ## Ownership
+> *Ownership* is a set of rules that govern how a Rust program manages memory.
+- The main purpose of *ownership* is to **manage heap data**.
 
+## Heap vs Stack
+> **Heap Analogy** <br>
+  Think of being seated at a restaurant. When you enter, you state the <br>
+  number of people in your group, and the host finds an empty table that <br>
+  fits everyone and leads you there. If someone in your group comes late, <br> 
+  they can ask where you’ve been seated to find you.
 
+- Remember the Stack analogy? Yeah, the one about plates. <br>
+  Basically: Last-In, First-Out.
 
+- Rust makes a point of Stack and Heap being different and important to <br>
+  understand. 
 
+> Accessing data in the heap is slower than accessing data on the stack <br>
+  because you have to follow a pointer to get there.
 
+> Pushing to the stack is faster than allocating on the heap because the <br>
+  allocator never has to search for a place to store new data; that <br> 
+  location is always at the top of the stack.
 
+> Keeping track of what parts of code are using what data on the heap, <br> 
+  minimizing the amount of duplicate data on the heap, and cleaning up <br> 
+  unused data on the heap so you don’t run out of space are all problems <br>
+  that ownership addresses.
 
+- Basically, *Ownership* deals with all these problems and when your <br>
+  coding you won't have to think about the Head or Stack "very often".
 
+## Ownership Rules
+- Each value in Rust has an *owner*
+- There can only be one owner at a time.
+- When the owner goes out of scope, the value will be dropped.
 
-
-
-
-
-
+ 
 
 
 
